@@ -12,16 +12,12 @@ const pitchValue = document.querySelector('#pitch-value');
 const body = document.querySelector('body');
 
 //Browser identifier
-// Firefox 1.0+
-var isFirefox = typeof InstallTrigger !== 'undefined';
 
-// Chrome 1+
-var isChrome = !!window.chrome && !!window.chrome.webstore;
 
 
 // Init voices array
 let voices = [];
-voices = synth.getVoices();
+
 const getVoices = () => {
   voices = synth.getVoices();
 
@@ -45,15 +41,12 @@ if (synth.onvoiceschanged !== undefined) {
   synth.onvoiceschanged = getVoices;
 }*/
 
-//Fix for duplication, run code depending on the browser
-if (isFirefox) {
+
     getVoices();
-}
-if (isChrome) {
     if (synth.onvoiceschanged !== undefined) {
         synth.onvoiceschanged = getVoices;
     }
-}
+
 
 
 // Speak

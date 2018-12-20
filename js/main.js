@@ -21,7 +21,7 @@ var isChrome = !!window.chrome && !!window.chrome.webstore;
 
 // Init voices array
 let voices = [];
-
+voices = synth.getVoices();
 const getVoices = () => {
   voices = synth.getVoices();
 

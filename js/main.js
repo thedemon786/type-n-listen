@@ -18,8 +18,6 @@ var isFirefox = typeof InstallTrigger !== 'undefined';
 // Chrome 1+
 var isChrome = !!window.chrome && !!window.chrome.webstore;
 
-// Edge
-var isEdge = !isIE && !!window.StyleMedia;
 
 // Init voices array
 let voices = [];
@@ -56,11 +54,7 @@ if (isChrome) {
         synth.onvoiceschanged = getVoices;
     }
 }
-if (isEdge) {
-    if (synth.onvoiceschanged !== undefined) {
-        synth.onvoiceschanged = getVoices;
-    }
-}
+
 
 // Speak
 const speak = () => {

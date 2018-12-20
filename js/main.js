@@ -57,7 +57,9 @@ if (isChrome) {
     }
 }
 if (isEdge) {
-    getVoices();
+    if (synth.onvoiceschanged !== undefined) {
+        synth.onvoiceschanged = getVoices;
+    }
 }
 
 // Speak
